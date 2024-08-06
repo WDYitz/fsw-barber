@@ -1,5 +1,5 @@
 import { db } from "@/lib/prisma"
-import BarbershopItem from "./barbershop-item"
+import BarbershopCard from "./barbershop-card"
 
 const PopularBarbershops = async () => {
   const popularBarbershops = await db.barbershop.findMany({
@@ -12,7 +12,7 @@ const PopularBarbershops = async () => {
       </h2>
       <div className="flex gap-2 overflow-auto [&::-webkit-scrollbar]:hidden">
         {popularBarbershops.map((barbershop) => (
-          <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+          <BarbershopCard key={barbershop.id} barbershop={barbershop} />
         ))}
       </div>
     </div>

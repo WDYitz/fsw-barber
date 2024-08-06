@@ -2,7 +2,8 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 
-const Agendamentos = () => {
+// TODO: receber agendamento como prop
+const BookingItem = () => {
   return (
     <div className="mx-5">
       <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
@@ -31,4 +32,4 @@ const Agendamentos = () => {
   )
 }
 
-export default Agendamentos
+export default BookingItem

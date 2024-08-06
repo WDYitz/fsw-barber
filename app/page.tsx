@@ -1,9 +1,9 @@
-import Agendamentos from "@/components/agendamentos"
 import Banner from "@/components/banner"
+import PopularBarbershops from "@/components/barbershop/popular-barbershop"
+import RecommendedBarbershops from "@/components/barbershop/recommended-barbershop"
+import BookingItem from "@/components/booking-item"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
-import PopularBarbershops from "@/components/popular-barbershops"
-import RecommendedBarbershops from "@/components/recommended-barbershops"
 import Services from "@/components/services"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -30,7 +30,7 @@ const Home = () => {
 
         <Banner image="/banner-01.png" />
 
-        <Agendamentos />
+        <BookingItem />
 
         <RecommendedBarbershops />
 
