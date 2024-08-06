@@ -1,11 +1,14 @@
+import BarbershopItem from "@/components/barbershop-item"
 import Header from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { db } from "@/lib/prisma"
 import MockAgendamento from "@/mocks/agendamento.mock"
 import { SearchIcon } from "lucide-react"
 import Image from "next/image"
 
-export default function Home() {
+const Home = async () => {
+  const barbershops = await db.barbershop.findMany({})
   return (
     <div>
       <Header />
@@ -19,7 +22,7 @@ export default function Home() {
           </Button>
         </div>
 
-        <div className="relative mt-6 h-[150px] w-full">
+        <div className="relative mt-6 w-full">
           <Image
             src="/banner-01.png"
             alt="agende nos melhores com FSW Barber"
@@ -29,7 +32,18 @@ export default function Home() {
         </div>
 
         <MockAgendamento />
+
+        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+          Recomendados
+        </h2>
+        <div className="flex gap-2 overflow-auto [&::webkit-scrollbar]:hidden">
+          {barbershops.map((barbershop) => (
+            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
       </div>
     </div>
   )
 }
+
+export default Home
