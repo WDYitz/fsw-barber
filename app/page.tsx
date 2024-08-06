@@ -1,6 +1,7 @@
 import Header from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import MockAgendamento from "@/mocks/agendamento.mock"
 import { SearchIcon } from "lucide-react"
 import Image from "next/image"
 
@@ -17,6 +18,7 @@ export default function Home() {
             <SearchIcon />
           </Button>
         </div>
+
         <div className="relative mt-6 h-[150px] w-full">
           <Image
             src="/banner-01.png"
@@ -25,6 +27,8 @@ export default function Home() {
             className="rounded-xl object-cover"
           />
         </div>
+
+        <MockAgendamento />
       </div>
     </div>
   )
