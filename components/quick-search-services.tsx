@@ -2,7 +2,7 @@ import { quickSearchOptions } from "@/constants/quick-search-options"
 import Image from "next/image"
 import { Button } from "./ui/button"
 
-const Services = () => {
+const QuickSearchServices = () => {
   return (
     <div className="mx-5 my-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
       {quickSearchOptions.map((service, index) => (
@@ -20,4 +20,4 @@ const Services = () => {
   )
 }
 
-export default Services
+export default QuickSearchServices

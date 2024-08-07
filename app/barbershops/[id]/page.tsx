@@ -1,11 +1,19 @@
+import BarbershopService from "@/components/barbershop/barbershop-service"
+import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { db } from "@/lib/prisma"
-import { ChevronLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react"
+import {
+  ChevronLeftIcon,
+  MapPinIcon,
+  MenuIcon,
+  PhoneIcon,
+  StarIcon,
+} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
-interface BarbershopPageProps {
+export interface BarbershopPageProps {
   params: {
     id: string
   }
@@ -16,10 +24,13 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
     where: {
       id: params.id,
     },
+    include: {
+      services: true,
+    },
   })
 
   if (!barbershop) {
-    return notFound();
+    return notFound()
   }
 
   return (
@@ -51,6 +62,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           <MenuIcon />
         </Button>
       </div>
+      
       <div className="border-b border-solid p-5">
         <h1 className="mb-3 text-xl font-bold">{barbershop?.name}</h1>
         <div className="mb-2 flex items-center gap-1">
@@ -62,10 +74,34 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           <p className="text-sm">5,0 (499 avaliações)</p>
         </div>
       </div>
+
       <div className="space-y-3 border-b border-solid p-5">
         <h2 className="text-xs font-bold uppercase text-gray-400">Sobre nós</h2>
         <p className="text-sm">{barbershop?.description}</p>
       </div>
+
+      <div className="space-y-3 border-b border-solid p-5">
+        <h2 className="pb-2 text-sm uppercase text-gray-500">Serviços</h2>
+        {barbershop.services.map((service) => (
+          <BarbershopService service={service} key={service.id} />
+        ))}
+      </div>
+
+      <div className="p-5">
+        <h2 className="pb-2 text-sm uppercase text-gray-500">contato</h2>
+        <div className="flex flex-col gap-4">
+          {barbershop?.phones.map((phone) => (
+            <div key={phone} className="flex items-center justify-between">
+              <div className="flex gap-2">
+                <PhoneIcon className="text-primary" size={18} />
+                <p className="text-sm">{phone}</p>
+              </div>
+              <Button variant="outline">Copiar</Button>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Footer />
     </div>
   )
 }
