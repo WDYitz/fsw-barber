@@ -1,4 +1,5 @@
 import { quickSearchOptions } from "@/constants/quick-search-options"
+import { cn } from "@/lib/utils"
 import { CalendarIcon, HomeIcon, LogOutIcon, MenuIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -13,11 +14,15 @@ import {
   SheetTrigger,
 } from "./ui/sheet"
 
-const OffCanvas = () => {
+interface SidebarProps {
+  className?: string
+}
+
+const Sidebar = ({ className }: SidebarProps) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button size="icon" variant="outline">
+        <Button size="icon" variant="outline" className={cn("", className)}>
           <MenuIcon />
         </Button>
       </SheetTrigger>
@@ -38,7 +43,7 @@ const OffCanvas = () => {
         </div>
 
         <div className="flex flex-col gap-4 border-b border-solid py-5">
-          <SheetClose>
+          <SheetClose asChild>
             <Button className="justify-start gap-2" variant="ghost" asChild>
               <Link href="/">
                 <HomeIcon size={18} />
@@ -76,4 +81,4 @@ const OffCanvas = () => {
   )
 }
 
-export default OffCanvas
+export default Sidebar;

@@ -1,8 +1,9 @@
 import BarbershopPhones from "@/components/barbershop/barbershop-phones"
 import BarbershopService from "@/components/barbershop/barbershop-service"
+import Sidebar from "@/components/sidebar"
 import { Button } from "@/components/ui/button"
 import { db } from "@/lib/prisma"
-import { ChevronLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react"
+import { ChevronLeftIcon, MapPinIcon, StarIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -48,13 +49,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           </Link>
         </Button>
 
-        <Button
-          size="icon"
-          variant="secondary"
-          className="absolute right-4 top-4"
-        >
-          <MenuIcon />
-        </Button>
+        <Sidebar className="absolute right-4 top-4" />
       </div>
 
       {/* Informações Barbearia */}

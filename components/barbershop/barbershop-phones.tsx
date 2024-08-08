@@ -10,8 +10,9 @@ interface BarbershopPhonesProps {
 const BarbershopPhones = ({ phone }: BarbershopPhonesProps) => {
   const handleCopyPhone = (phone: string) => {
     navigator.clipboard.writeText(phone)
-    toast.success("Telefone copiado com sucesso!");
+    toast.success("Telefone copiado com sucesso!")
   }
+
   return (
     <div key={phone} className="relative flex items-center justify-between">
       <div className="flex gap-2">

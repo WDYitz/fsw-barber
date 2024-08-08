@@ -1,5 +1,5 @@
 import Image from "next/image"
-import OffCanvas from "./off-canvas"
+import Sidebar from "./sidebar"
 import { Card, CardContent } from "./ui/card"
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
         {/* Logo */}
         <Image src="/logo.png" alt="logo" width={120} height={120} />
         {/* Menu lateral */}
-        <OffCanvas />
+        <Sidebar />
       </CardContent>
     </Card>
   )
