@@ -2,7 +2,6 @@ import Banner from "@/components/banner"
 import PopularBarbershops from "@/components/barbershop/popular-barbershop"
 import RecommendedBarbershops from "@/components/barbershop/recommended-barbershop"
 import BookingItem from "@/components/booking/booking-item"
-import Footer from "@/components/footer"
 import Header from "@/components/header"
 import QuickSearchServices from "@/components/quick-search-services"
 import { Button } from "@/components/ui/button"
@@ -35,8 +34,6 @@ const Home = () => {
         <RecommendedBarbershops />
 
         <PopularBarbershops />
-
-        <Footer />
       </div>
     </div>
   )
